@@ -9,10 +9,16 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [
+    BrowserModule,
+    FirebaseUIModule,
+    IonicModule.forRoot(),
+    AppRoutingModule],
   providers: [
     StatusBar,
     SplashScreen,
