@@ -10,4 +10,9 @@ export class HomePage {
 
   constructor(public afAuth: AngularFireAuth) {}
 
+  signOut() {
+    this.afAuth.auth.signOut().then(() => {
+      location.reload();
+    });
+  }
 }
