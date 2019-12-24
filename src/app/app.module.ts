@@ -19,7 +19,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInOptions: [
     firebase.auth.EmailAuthProvider.PROVIDER_ID,
   ],
-  tosUrl: '<your-tos-link>',
+  tosUrl: '/terms',
   privacyPolicyUrl: '<your-privacyPolicyUrl-link>',
   credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
 };
