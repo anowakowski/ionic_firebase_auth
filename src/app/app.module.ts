@@ -11,6 +11,19 @@ import { AppRoutingModule } from './app-routing.module';
 
 import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+ 
+const firebaseUiAuthConfig: firebaseui.auth.Config = {
+  signInFlow: 'popup',
+  signInOptions: [
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+  ],
+  tosUrl: '<your-tos-link>',
+  privacyPolicyUrl: '<your-privacyPolicyUrl-link>',
+  credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
+};
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
