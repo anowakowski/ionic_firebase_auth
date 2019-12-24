@@ -13,6 +13,7 @@ import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -31,7 +32,11 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     BrowserModule,
     FirebaseUIModule,
     IonicModule.forRoot(),
-    AppRoutingModule],
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig)
+  ],
   providers: [
     StatusBar,
     SplashScreen,

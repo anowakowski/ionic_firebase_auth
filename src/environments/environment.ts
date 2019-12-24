@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  firebase: {
+  firebaseConfig: {
     apiKey: 'AIzaSyDSyfKMLwlx62EwCCHzlXALtkBV8RGdZuw',
     authDomain: 'ionic-auth-example-a60cb.firebaseapp.com',
     databaseURL: 'https://ionic-auth-example-a60cb.firebaseio.com',
