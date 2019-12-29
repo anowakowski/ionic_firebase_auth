@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class HomePage {
 
+  /*
   constructor(public afAuth: AngularFireAuth) {}
 
   signOut() {
@@ -15,4 +17,7 @@ export class HomePage {
       location.reload();
     });
   }
+  */
+
+  constructor(public auth: AuthService) {}
 }

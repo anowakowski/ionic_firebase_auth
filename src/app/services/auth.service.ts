@@ -5,7 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
-import { Observable, of } from 'rxjs';
+import { Observable, of, merge } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import { User } from './user.model';
@@ -16,7 +16,6 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  authStateUser: firebase.User = null;
   user$: Observable<any>;
 
   constructor(
@@ -33,14 +32,30 @@ export class AuthService {
           }
         })
       );
-
   }
 
-  get authenticated(): boolean {
-    return this.authStateUser !== null;
+  async googleSignin() {
+    const provider = new auth.GoogleAuthProvider();
+    const credential = await this.afAuth.auth.signInWithPopup(provider);
+
+    return this.updateUserData(credential.user);
+  }
+  updateUserData(user: firebase.User) {
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+
+    const data = {
+      uid: user.uid,
+      email: user.email,
+      splayName: user.displayName,
+      photoURL: user.photoURL
+    };
+
+    return userRef.set(data, {merge: true});
   }
 
-  get currentUser(): firebase.User {
-    return this.authenticated ? this.authStateUser : null;
+  signOut() {
+    this.afAuth.auth.signOut().then(() => {
+      this.router.navigate(['/']);
+    });
   }
 }
