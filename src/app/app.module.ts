@@ -9,13 +9,17 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
+////import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
+
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import {AngularFireModule} from '@angular/fire';
 
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
+import { AuthService } from './services/auth.service';
 
+/*
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
   signInOptions: [
@@ -25,22 +29,25 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
   privacyPolicyUrl: '/privacy',
   credentialHelper: firebaseui.auth.CredentialHelper.NONE
 };
+*/
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
-    FirebaseUIModule,
+    AngularFirestoreModule,
+    ////FirebaseUIModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
-    FirebaseUIModule.forRoot(firebaseUiAuthConfig)
+    AngularFireAuthModule
+    ////FirebaseUIModule.forRoot(firebaseUiAuthConfig)
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    AuthService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
