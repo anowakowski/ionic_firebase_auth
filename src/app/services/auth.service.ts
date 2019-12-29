@@ -37,9 +37,9 @@ export class AuthService {
   async googleSignin() {
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afAuth.auth.signInWithPopup(provider);
-
     return this.updateUserData(credential.user);
   }
+
   updateUserData(user: firebase.User) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
@@ -48,8 +48,7 @@ export class AuthService {
       email: user.email,
       splayName: user.displayName,
       photoURL: user.photoURL
-    };
-
+    };    
     return userRef.set(data, {merge: true});
   }
 
