@@ -18,6 +18,7 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth.guard';
 
 /*
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
@@ -48,6 +49,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     StatusBar,
     SplashScreen,
     AuthService,
+    AuthGuard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

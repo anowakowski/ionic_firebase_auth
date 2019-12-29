@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
-import { SuperSecretComponent } from './super-secret/super-secret.component';
 ////import { FirebaseUIModule } from 'firebaseui-angular';
 
 @NgModule({
@@ -18,16 +17,11 @@ import { SuperSecretComponent } from './super-secret/super-secret.component';
       {
         path: '',
         component: HomePage
-      },
-      {
-        path: 'secrets',
-        component: SuperSecretComponent
       }
     ])
   ],
   declarations: [
-    HomePage,
-    SuperSecretComponent
+    HomePage
   ]
 })
 export class HomePageModule {}

@@ -9,6 +9,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class HomePage {
 
+  loadSecret: boolean;
+
   /*
   constructor(public afAuth: AngularFireAuth) {}
 
@@ -20,4 +22,8 @@ export class HomePage {
   */
 
   constructor(public auth: AuthService) {}
+  
+  showSecret() {
+    this.loadSecret = true;
+  }
 }
