@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 
 import {AngularFireModule} from '@angular/fire';
+
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 
